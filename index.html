@@ -8,6 +8,78 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="vue-app">
+        <h1>
+          Name:  {{name}}
+        </h1>
+        <h2>Job: {{Job}}</h2>
+        <h3>Age: {{Age}}</h3>
+        <h4>
+            Website: <a v-on:click.prevent="click" v-bind:href="link">link</a>
+        </h4>
+        <h1>{{Intro}}</h1>
+        <h1>{{greet (' How are you?')}}</h1>
+        <h1>Events</h1>
+        <p>Note: Double click to add or reduce by ten</p>
+        <p>Number of projects: {{project}}</p>
+        <button v-on:click="add(1)">Add more</button>
+        <button v-on:click="substract(1)">Reduce number</button>
+        <button v-on:dblclick="add(10)">Add Ten</button>
+        <button v-on:dblclick="substract(10)">Reduce Ten</button>
+        <p v-bind:class="{active:isactive, unactive:notactive}">Have you ever contibuted to open source</p>
+        <button v-on:click="yes">Yes</button>
+        <button v-on:click="no">No</button>
+        <div id="canvas" v-on:mouseover="updateXY">
+            {{x}}, {{y}}
+        </div>
+        <div class="keyboard">
+            <h1>Keyboard Events</h1>
+            <label for="Name">Github Username:</label>
+            <input type="text" v-model="git" v-on:keyup.enter="enter"><br><br>
+            <p>Github Username:{{ git}}</p>
+            <label for="twitter">Twitter Username:</label>
+            <input type="text" v-model="twitter" v-on:keyup.enter="enter"><br>
+            <p>Twitter Username: {{ twitter}}</p>
+            <select name="Shapes" id="">               
+                    <option value="rectangle" >Rectangle</option>
+                    <option  value="Square">Square</option>
+                    <option value="triangle">triangle</option>
+               
+            </select>
+            <button v-on:click="rect">select</button>
+            <div :class="{shape:display}"></div>
+        </div>
+        <div>
+            <h1>Dynamic CSS</h1>
+            <h3>Example 1</h3>
+            <select v-on:change="red=!red"  name="" id="">
+                <option value="Red">Red</option>
+                <option value="Blue">Blue</option>
+            </select>
+            <button v-on:click="blue=!blue">Increase</button>
+            <span v-bind:class="compClasses">ok</span>
+            <h3>Example 2</h3>
+        </div>
+        <h1>Conditionals</h1>
+        <button  v-on:click="success=!success">Toggle Success</button>
+        <button v-on:click="errorE=!errorE">Toggle Error</button>
+        <p v-if="success">Success Bee :)</p>
+        <p v-else-if="errorE">Sad :(</p>
+        <h2>V-FOR Looping through Array</h2>
+        <h3>Resources for learning to code</h3>
+        <ul>
+            <li v-for="item in items">{{item}}</li>
+        </ul>
+        <ul>
+            <li v-for="(tutor, index) in devTutors">{{index}}. {{tutor.name}}-{{tutor.channel}}</li>
+        </ul>
+        <template  v-for="(tutor, index) in devTutors">
+            {{index}}. <div v-for="(val, key) in tutor">
+                <p>{{key}} - {{val}}</p>
+            </div>
+        </template>
+    </div>
     <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
 </body>
 </html>

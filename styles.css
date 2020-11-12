@@ -1,0 +1,33 @@
+.active{
+    color: green;
+
+}
+.unactive{
+    color: red;
+}
+#canvas{
+    margin:2rem ;
+    padding: 100px;
+    width: 200px;
+    text-align: center;
+    border: solid 2px;
+}
+.shape{
+    width: 200px;
+    height: 70px;
+    background-color: green;
+    margin: auto;
+}
+span{
+    background: blue;
+    padding: 1rem;
+    display: inline-block;
+    margin: 10px 0;
+    color: #ffffff;
+}
+.red{
+    background: red;
+}
+.blue{
+    width: 5rem;
+}
